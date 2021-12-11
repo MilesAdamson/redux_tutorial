@@ -61,13 +61,13 @@ class DataState<T> {
 
   DataState<T> copyWith({
     Map<int, T>? data,
-    String? error,
+    String? errorMessage,
     bool? isLoading,
   }) {
     return DataState<T>(
       data ?? this.data,
       // If data is non-null, we wipe any previous error message
-      data != null ? null : error ?? this.errorMessage,
+      data != null ? null : errorMessage ?? this.errorMessage,
       isLoading ?? this.isLoading,
     );
   }

@@ -36,5 +36,5 @@ DataState<Post> onPostsLoadFailure(
   DataState<Post> state,
   LoadPostsFailedAction action,
 ) {
-  return state.copyWith(isLoading: false, error: action.error);
+  return state.copyWith(isLoading: false, errorMessage: action.error);
 }

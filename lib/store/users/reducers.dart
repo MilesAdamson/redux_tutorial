@@ -36,5 +36,5 @@ DataState<User> onUsersLoadFailure(
   DataState<User> state,
   LoadUsersFailedAction action,
 ) {
-  return state.copyWith(isLoading: false, error: action.error);
+  return state.copyWith(isLoading: false, errorMessage: action.error);
 }
