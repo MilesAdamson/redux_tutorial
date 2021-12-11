@@ -4,7 +4,7 @@ import 'package:redux_tutorial/components/post_list_tile.dart';
 import 'package:redux_tutorial/store/application_state.dart';
 import 'package:redux_tutorial/view_models/user_profile_screen_view_model.dart';
 
-class UserProfileScreen extends StatefulWidget {
+class UserProfileScreen extends StatelessWidget {
   // Pass the id, not the user. We want this screen
   // to be reactive to changes to the user, using a
   // view model to get the most recent version in the store
@@ -16,16 +16,11 @@ class UserProfileScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => UserProfileScreenState();
-}
-
-class UserProfileScreenState extends State<UserProfileScreen> {
-  @override
   Widget build(BuildContext context) {
     return StoreConnector<ApplicationState, UserProfileScreenViewModel>(
       converter: (store) => UserProfileScreenViewModel.converter(
         store,
-        widget.userId,
+        userId,
       ),
       onInitialBuild: (viewModel) => viewModel.loadPosts(),
       builder: (context, viewModel) {
